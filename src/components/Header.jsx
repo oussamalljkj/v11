@@ -1,98 +1,107 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Navbar, Container, Nav, Offcanvas, Button } from 'react-bootstrap';
 import './css/Header.css';
 import { useLanguage } from '../context/LanguageContext.jsx';
 
 const Header = () => {
   const { lang, toggle, t } = useLanguage();
   const [open, setOpen] = useState(false);
+
   return (
-    <header className="header">
-      <div className="header-content">
-        <a href="https://www.schb.dz/" target="_blank" rel="noopener noreferrer">
-          <img 
-            src="/Logo-Gica.png"  
-            alt="SCHB Logo" 
-            className="logo"
-          />
-        </a>
-        <div className="header-text">
-          <h1>{t('header.title')}</h1>
-          <p>{t('header.subtitle')}</p>
+    <Navbar expand="lg" className="header py-3">
+      <Container className="position-relative">
+        {/* Mobile Toggle */}
+        <Navbar.Toggle 
+          aria-controls="mobile-navigation" 
+          className="border-0 p-0 position-absolute top-0 start-0"
+          onClick={() => setOpen(!open)}
+        >
+          <span className="navbar-toggler-icon"></span>
+        </Navbar.Toggle>
+
+        {/* Logo and Title */}
+        <div className="d-flex align-items-center gap-3 flex-wrap justify-content-center w-100 w-lg-auto">
+          <a href="https://www.schb.dz/" target="_blank" rel="noopener noreferrer">
+            <img 
+              src="/Logo-Gica.png"  
+              alt="SCHB Logo" 
+              className="logo"
+              style={{ height: '70px' }}
+            />
+          </a>
+          <div className="text-center text-lg-start">
+            <h1 className="h3 mb-1 fw-bold text-white text-shadow">{t('header.title')}</h1>
+            <p className="mb-0 text-white-50">{t('header.subtitle')}</p>
+          </div>
         </div>
-      </div>
-      <div className="header-lang">
-        <button type="button" className="lang-toggle" onClick={toggle}>
-          {lang === 'fr' ? 'العربية' : 'Français'}
-        </button>
-      </div>
-      <div className="header-actions">
-        <Link className="header-link" to="/">{t('nav.home')}</Link>
-        <Link className="header-link" to="/plainte">{t('nav.report')}</Link>
-        <Link className="header-link" to="/suivi">{t('nav.track')}</Link>
-        <Link className="header-link" to="/politique-anti-corruption">{t('nav.policy')}</Link>
-        <Link className="header-link" to="/about">{t('nav.about')}</Link>
-      </div>
 
-      <button
-        className={`hamburger ${open ? 'open' : ''}`}
-        aria-label={open ? 'Close menu' : 'Open menu'}
-        aria-expanded={open}
-        onClick={() => setOpen(v => !v)}
+        {/* Language Toggle - Top Right */}
+        <div className="position-absolute top-0 end-0">
+          <Button 
+            variant="light" 
+            size="sm" 
+            className="rounded-pill fw-bold"
+            onClick={toggle}
+          >
+            {lang === 'fr' ? 'العربية' : 'Français'}
+          </Button>
+        </div>
+
+        {/* Desktop Navigation - Bottom Right */}
+        <Navbar.Collapse className="position-absolute bottom-0 end-0 d-none d-lg-flex">
+          <Nav className="gap-4">
+            <Nav.Link as={Link} to="/" className="text-white text-decoration-none">{t('nav.home')}</Nav.Link>
+            <Nav.Link as={Link} to="/plainte" className="text-white text-decoration-none">{t('nav.report')}</Nav.Link>
+            <Nav.Link as={Link} to="/suivi" className="text-white text-decoration-none">{t('nav.track')}</Nav.Link>
+            <Nav.Link as={Link} to="/politique-anti-corruption" className="text-white text-decoration-none">{t('nav.policy')}</Nav.Link>
+            <Nav.Link as={Link} to="/about" className="text-white text-decoration-none">{t('nav.about')}</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+
+      {/* Mobile Offcanvas */}
+      <Offcanvas 
+        show={open} 
+        onHide={() => setOpen(false)} 
+        placement="start"
+        className="w-75"
+        style={{ maxWidth: '340px' }}
       >
-        <span />
-        <span />
-        <span />
-      </button>
-
-      {open && (
-        <>
-          <div className="mobile-overlay" onClick={() => setOpen(false)} />
-          <nav className="mobile-menu" role="dialog" aria-modal="true">
-            <div className="mobile-menu-header">
-              <button aria-label="Close" className="mobile-close" onClick={() => setOpen(false)}>×</button>
-            </div>
-            <div className="mobile-links" onClick={() => setOpen(false)}>
-              <Link className="mobile-link" to="/">
-                <span className="mobile-link-icon" aria-hidden>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 2 12h3v8h6v-5h2v5h6v-8h3L12 3Z"/></svg>
-                </span>
-                {t('nav.home')}
-              </Link>
-              <Link className="mobile-link" to="/plainte">
-                <span className="mobile-link-icon" aria-hidden>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6 2h12a2 2 0 0 1 2 2v14l-4-2-4 2-4-2-4 2V4a2 2 0 0 1 2-2Zm2 5h8v2H8V7Zm0 4h8v2H8v-2Z"/></svg>
-                </span>
-                {t('nav.report')}
-              </Link>
-              <Link className="mobile-link" to="/suivi">
-                <span className="mobile-link-icon" aria-hidden>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3 4h18v2H3V4Zm0 7h12v2H3v-2Zm0 7h18v2H3v-2Z"/></svg>
-                </span>
-                {t('nav.track')}
-              </Link>
-              <Link className="mobile-link" to="/politique-anti-corruption">
-                <span className="mobile-link-icon" aria-hidden>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3Zm0 18c-3.3-1.1-6-5-6-9.1V6.2l6-2.2 6 2.2v4.7C18 15 15.3 18.9 12 20Z"/></svg>
-                </span>
-                {t('nav.policy')}
-              </Link>
-              <Link className="mobile-link" to="/about">
-                <span className="mobile-link-icon" aria-hidden>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm1 15h-2v-6h2Zm0-8h-2V7h2Z"/></svg>
-                </span>
-                {t('nav.about')}
-              </Link>
-            </div>
-            <div className="mobile-lang">
-              <button type="button" className="lang-toggle" onClick={() => { toggle(); }}>
-                {lang === 'fr' ? 'العربية' : 'Français'}
-              </button>
-            </div>
-          </nav>
-        </>
-      )}
-    </header>
+        <Offcanvas.Header closeButton className="bg-dark text-white">
+          <Offcanvas.Title className="fw-bold">Menu</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body className="d-flex flex-column">
+          <Nav className="flex-column gap-4 text-center py-4">
+            <Nav.Link as={Link} to="/" onClick={() => setOpen(false)} className="text-dark fw-bold">
+              {t('nav.home')}
+            </Nav.Link>
+            <Nav.Link as={Link} to="/plainte" onClick={() => setOpen(false)} className="text-dark fw-bold">
+              {t('nav.report')}
+            </Nav.Link>
+            <Nav.Link as={Link} to="/suivi" onClick={() => setOpen(false)} className="text-dark fw-bold">
+              {t('nav.track')}
+            </Nav.Link>
+            <Nav.Link as={Link} to="/politique-anti-corruption" onClick={() => setOpen(false)} className="text-dark fw-bold">
+              {t('nav.policy')}
+            </Nav.Link>
+            <Nav.Link as={Link} to="/about" onClick={() => setOpen(false)} className="text-dark fw-bold">
+              {t('nav.about')}
+            </Nav.Link>
+          </Nav>
+          <div className="mt-auto border-top pt-3">
+            <Button 
+              variant="outline-primary" 
+              size="sm" 
+              className="rounded-pill fw-bold w-100"
+              onClick={() => { toggle(); }}
+            >
+              {lang === 'fr' ? 'العربية' : 'Français'}
+            </Button>
+          </div>
+        </Offcanvas.Body>
+      </Offcanvas>
+    </Navbar>
   );
 };
 
