@@ -4,6 +4,7 @@ import './components/css/Common.css';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
+import ScrollToTopButton from './components/ScrollToTopButton.jsx';
 import Accueil from './pages/Accueil.jsx';
 import PoserUnePlainte from './pages/PoserUnePlainte.jsx';
 import PolitiqueAntiCorruption from './pages/PolitiqueAntiCorruption.jsx';
@@ -26,6 +27,7 @@ function App() {
         </Routes>
       </div>
       <Footer />
+      <ScrollToTopButton />
     </div>
   );
 }

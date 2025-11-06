@@ -14,7 +14,7 @@ function Footer() {
           <div className="contact-values">
             <div className="contact-line">
               <span className="contact-label">{t('footer.tel')}</span>
-              <span className="contact-value">213 31 60 65 43</span>
+              <a className="contact-value" href="tel:+21331606543">213 31 60 65 43</a>
               <span className="contact-sep" />
               <span className="contact-label">{t('footer.fax')}</span>
               <span className="contact-value">213 31 60 65 39</span>
@@ -28,7 +28,7 @@ function Footer() {
           <div className="contact-values">
             <div className="contact-line">
               <span className="contact-label">{t('footer.tel')}</span>
-              <span className="contact-value">213 31 90 68 45</span>
+              <a className="contact-value" href="tel:+21331906845">213 31 90 68 45</a>
               <span className="contact-sep" />
               <span className="contact-label">{t('footer.fax')}</span>
               <span className="contact-value">213 31 90 66 23</span>
@@ -42,7 +42,7 @@ function Footer() {
           <div className="contact-values">
             <div className="contact-line">
               <span className="contact-label">{t('footer.tel')}</span>
-              <span className="contact-value">213 31 86 40 40</span>
+              <a className="contact-value" href="tel:+21331864040">213 31 86 40 40</a>
               <span className="contact-sep" />
               <span className="contact-label">{t('footer.fax')}</span>
               <span className="contact-value">213 31 86 40 03</span>
@@ -56,7 +56,7 @@ function Footer() {
           <div className="contact-values">
             <div className="contact-line">
               <span className="contact-label">{t('footer.tel')}</span>
-              <span className="contact-value">213 31 82 24 10</span>
+              <a className="contact-value" href="tel:+21331822410">213 31 82 24 10</a>
               <span className="contact-sep" />
               <span className="contact-label">{t('footer.fax')}</span>
               <span className="contact-value">213 31 82 24 10</span>
@@ -70,7 +70,7 @@ function Footer() {
           <div className="contact-values">
             <div className="contact-line">
               <span className="contact-label">{t('footer.tel')}</span>
-              <span className="contact-value">213 31 75 26 63</span>
+              <a className="contact-value" href="tel:+21331752663">213 31 75 26 63</a>
               <span className="contact-sep" />
               <span className="contact-label">{t('footer.fax')}</span>
               <span className="contact-value">213 31 75 26 63</span>
