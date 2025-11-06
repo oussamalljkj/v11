@@ -9,7 +9,7 @@ const LanguageContext = createContext({
 
 const translations = {
   fr: {
-    'header.title': 'Portail de Signalement Anti-Corruption',
+    'header.title': 'Anti-Corruption SCHB',
     'header.subtitle': 'Société des Ciments de Hamma Bouziane',
     'nav.home': 'Accueil',
     'nav.report': 'Poser une Plainte',
@@ -240,7 +240,7 @@ const translations = {
     'about.channels.li3': 'Voies supplémentaires selon la réglementation.',
   },
   ar: {
-    'header.title': 'بوابة التبليغ عن الفساد',
+    'header.title': '    مكافحة الفساد SCHB  ',
     'header.subtitle': 'شركة إسمنت حمّة بوزيان',
     'nav.home': 'الصفحة الرئيسية',
     'nav.report': 'تقديم شكوى',
