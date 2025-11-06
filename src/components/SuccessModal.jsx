@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { Modal, Card, Button } from 'react-bootstrap';
 import './css/SuccessModal.css';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import { QRCodeCanvas } from 'qrcode.react';
@@ -77,53 +76,40 @@ const SuccessModal = ({ open, onClose, data = {}, reportType = 'unknown' }) => {
   };
 
   return (
-    <Modal show={open} onHide={onClose} centered size="lg">
-      <Modal.Header closeButton>
-        <Modal.Title>{t('success.title')}</Modal.Title>
-      </Modal.Header>
-      
-      <Modal.Body>
-        <Card className="border-0 bg-light mb-3">
-          <Card.Body>
-            <p className="mb-2">{t('success.p1')}</p>
-            <p className="mb-0">{t('success.p2')}</p>
-          </Card.Body>
-        </Card>
+    <div className="modal-overlay" role="dialog" aria-modal="true">
+      <div className="modal">
+        <h3 className="step-title">{t('success.title')}</h3>
+        <div className="policy-box">
+          <p>{t('success.p1')}</p>
+          <p>{t('success.p2')}</p>
+        </div>
 
-        <Card className="border-0 bg-light text-center">
-          <Card.Body>
-            <div className="fw-semibold mb-2">{t('success.trackCode')}</div>
-            <div className="fs-4 fw-bold mb-1" style={{ letterSpacing: '0.5px' }}>{trackingId}</div>
-            <div className="text-muted small mb-3">{t('success.savedAt')} {savedAt}</div>
-            
-            <div ref={qrRef} className="d-flex justify-content-center mb-3">
-              {trackingId && <QRCodeCanvas value={qrValue} size={160} includeMargin />}
-            </div>
-            
-            <div className="d-flex gap-2 flex-wrap justify-content-center">
-              <Button variant="outline-secondary" size="sm" onClick={handleCopy}>
-                {t('success.copyCode')}
-              </Button>
-              <Button variant="outline-secondary" size="sm" onClick={downloadQR}>
-                {t('success.downloadQR')}
-              </Button>
-              <Button variant="primary" size="sm" onClick={goToTracking}>
-                {t('success.openTracking')}
-              </Button>
-            </div>
-          </Card.Body>
-        </Card>
-      </Modal.Body>
-      
-      <Modal.Footer>
-        <Button variant="primary" onClick={goToTracking}>
-          {t('success.backHome')}
-        </Button>
-        <Button variant="secondary" onClick={onClose}>
-          {t('success.close')}
-        </Button>
-      </Modal.Footer>
-    </Modal>
+        <div className="policy-box" style={{ textAlign: 'center' }}>
+          <div style={{ marginBottom: '0.5rem', fontWeight: 600 }}>{t('success.trackCode')}</div>
+          <div style={{ fontSize: '1.25rem', letterSpacing: '0.5px' }}>{trackingId}</div>
+          <div style={{ color: '#64748b', marginTop: '0.25rem' }}>{t('success.savedAt')} {savedAt}</div>
+          <div ref={qrRef} style={{ marginTop: '1rem', display: 'flex', justifyContent: 'center' }}>
+            {trackingId && <QRCodeCanvas value={qrValue} size={160} includeMargin />}
+          </div>
+          <div className="actions-row" style={{ marginTop: '0.75rem', justifyContent: 'center' }}>
+            <button className="btn btn-secondary" type="button" onClick={handleCopy}>{t('success.copyCode')}</button>
+            <button className="btn btn-secondary" type="button" onClick={downloadQR}>{t('success.downloadQR')}</button>
+            <button className="btn btn-primary" type="button" onClick={goToTracking}>{t('success.openTracking')}</button>
+          </div>
+        </div>
+
+        <div className="actions-row">
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={goToTracking}
+          >
+            {t('success.backHome')}
+          </button>
+          <button className="btn btn-secondary" onClick={onClose}>{t('success.close')}</button>
+        </div>
+      </div>
+    </div>
   );
 };
 

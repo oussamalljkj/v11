@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="app">
       <Header />
-      <div className="content-wrapper">
+      <div className="container">
         <Routes>
           <Route path="/" element={<Accueil />} />
           <Route path="/plainte" element={<PoserUnePlainte />} />
