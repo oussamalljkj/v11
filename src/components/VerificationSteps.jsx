@@ -101,7 +101,6 @@ const VerificationSteps = ({ onDone, onCancel }) => {
             >
               {t('verify.continue')}
             </button>
-            <button type="button" className="btn btn-secondary" onClick={onCancel}>{t('verify.close')}</button>
           </div>
         </div>
       )}

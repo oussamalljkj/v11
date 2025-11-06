@@ -71,7 +71,7 @@ const translations = {
     // Verification steps
     'verify.title': 'Vérification',
     'verify.step0.title': 'Étape 0 : Confidentialité',
-    'verify.step0.p1': 'Veuillez télécharger et lire la Charte de Confidentialité « Charte de Recueil et Traitement de Signalement & de Protection de Lanceur d\'Alerte » avant de soumettre votre cas.',
+    'verify.step0.p1': 'Veuillez lire la Charte de Confidentialité « Charte de Recueil et Traitement de Signalement & de Protection de Lanceur d\'Alerte » avant de soumettre votre cas.',
     'verify.step0.p2': 'La plateforme n’est pas destinée à recevoir des réclamations, ni à soulever des problèmes liés aux ressources humaines. Pour ces problèmes, utilisez les canaux locaux appropriés.',
     'verify.step0.p3': 'Si vous souhaitez utiliser la plateforme pour signaler un cas, veuillez confirmer que vous avez lu et compris la politique, y compris la partie confidentialité.',
     'verify.confirm': 'Confirmer',
@@ -241,7 +241,7 @@ const translations = {
   },
   ar: {
     'header.title': '    مكافحة الفساد SCHB  ',
-    'header.subtitle': 'شركة إسمنت حمّة بوزيان',
+    'header.subtitle': 'شركة إسمنت حامّة بوزيان',
     'nav.home': 'الصفحة الرئيسية',
     'nav.report': 'تقديم شكوى',
     'nav.policy': 'السياسة',
@@ -325,7 +325,7 @@ const translations = {
     // Verification steps
     'verify.title': 'التحقق',
     'verify.step0.title': 'الخطوة 0: السرية',
-    'verify.step0.p1': 'يرجى تنزيل وقراءة ميثاق السرية « ميثاق جمع ومعالجة البلاغات وحماية المبلغين » قبل تقديم حالتك.',
+    'verify.step0.p1': 'يرجى قراءة ميثاق السرية « ميثاق جمع ومعالجة البلاغات وحماية المبلغين » قبل تقديم حالتك.',
     'verify.step0.p2': 'المنصة ليست مخصصة لتلقي الشكاوى أو المشاكل المتعلقة بالموارد البشرية. لهذه الأمور، استخدم القنوات المحلية المناسبة.',
     'verify.step0.p3': 'إذا كنت ترغب في استخدام المنصة للإبلاغ، يرجى تأكيد أنك قرأت وفهمت السياسة بما في ذلك جزء السرية.',
     'verify.confirm': 'تأكيد',
